@@ -8,7 +8,7 @@ const Hero = () => {
             <div className="hero-left">
                 <h2>New Arrivals</h2>
                 <div>
-                    <div classname="hand-hand-icon">
+                    <div className="hand-hand-icon">
                         <p>Upgrade</p>
                         <img src='' alt="" />
                     </div>

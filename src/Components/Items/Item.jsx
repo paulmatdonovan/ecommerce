@@ -8,7 +8,9 @@ const Item = (props) => {
             <Link to={`/product/${props.id}`}>
                 <img src={props.image} alt='' />
             </Link>
-            <p>{props.name}</p>
+            <Link to={`/product/${props.id}`}>
+                <p>{props.name}</p>
+            </Link>
             <div className='item-prices' >
                 {props.price}
             </div>

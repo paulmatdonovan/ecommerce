@@ -6,8 +6,8 @@ import ProductDisplay from '../Components/ProductDisplay/ProductDisplay';
 
 const Product = () => {
     const { products } = useContext(ShopContext);
-    const { productID } = useParams();
-    const product = products.find((e) => e.id === Number(productID));
+    const { productId } = useParams();
+    const product = products.find((e) => e.id === Number(productId));
 
     return (
         <div>

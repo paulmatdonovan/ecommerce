@@ -1,6 +1,6 @@
-import Mouse1 from './Mouse1.jpeg';
+
 import CreativeDesign from './Creative Design (2).jpg'
-import Charger from './1.jpg';
+
 import Stand from './p9.jpg';
 
 let products = [
@@ -10,7 +10,7 @@ let products = [
         name: "iPhone Stand",
         title: "iPhone Stand Holder",
         category: "phones",
-        image: Stand,
+        image: "https://m.media-amazon.com/images/I/61ERvQ32fkL._AC_SL1500_.jpg",
         price: 22.99
     },
     {
@@ -20,7 +20,7 @@ let products = [
 
         title: "Foldable Keyboard",
         category: 'ipads',
-        image: CreativeDesign,
+        image: "https://m.media-amazon.com/images/I/813Wzsgcb7L._AC_SL1500_.jpg",
         price: 45.99
     },
     {
@@ -30,16 +30,16 @@ let products = [
         title: "a title",
         category: "laptops",
 
-        image: Mouse1,
+        image: "https://s.alicdn.com/@sc04/kf/H6e020b6a473b44288ab3c802f2f2709dx.jpg",
         price: 25.00
     },
     {
         id: 4,
-        description: "Charging stantion for iphone and Apple Watch",
+        description: "Charging station for iphone and Apple Watch",
         title: "Charging Station",
         name: "Charging Stand",
         category: "phones",
-        image: Charger,
+        image: 'https://s.alicdn.com/@sc04/kf/H83cbf71e946d46d8b9dfe1b1267b6d19k.jpg',
         price: 25.00
     }
 ];

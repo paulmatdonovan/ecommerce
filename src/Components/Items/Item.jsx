@@ -12,7 +12,7 @@ const Item = (props) => {
                 <p>{props.name}</p>
             </Link>
             <div className='item-prices' >
-                {props.price}
+                ${props.price}
             </div>
         </div>
     )

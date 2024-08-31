@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import './ProductDisplay.css';
-import { ShopContext } from '../../Context/ShopContext';
-
+import { ShopContext } from '../../Context/ShopContext.jsx';
 
 const ProductDisplay = (props) => {
 
     const { product } = props;
+    console.log(product)
 
     const { addToCart } = useContext(ShopContext);
 
@@ -16,7 +16,7 @@ const ProductDisplay = (props) => {
             </div>
 
             <div className="productdisplay-right">
-                <h1>{product.name}</h1>
+                <h1>{product.title}</h1>
                 <div className="productdisplayrightdescription"><p>{product.description}</p></div>
 
                 <div className='productdisplay-prices'>${product.price}</div>

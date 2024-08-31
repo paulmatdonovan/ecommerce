@@ -12,7 +12,7 @@ const ShopCategory = (props) => {
                     <span></span>
                 </p>
                 <div className="shopcategrory-sort">
-                    Sort by <img src="" alt="" />
+
                 </div>
             </div>
             <div className="shopcategory-products">

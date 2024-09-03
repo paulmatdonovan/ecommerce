@@ -5,7 +5,12 @@ import cart_cross_icon from '../Assets/cart_cross_icon.png'
 
 
 const CartItems = () => {
-    const { getTotalCartAmount, products, removeFromCart, cartItems } = useContext(ShopContext);
+    const { getTotalCartAmount, products, removeFromCart, cartItems, currentUser } = useContext(ShopContext);
+
+    if (!currentUser) {
+        return <div className='current-user-prompt'
+        >Please log in to view your cart.</div>;
+    }
     return (
         <div className='cartitems'>
             <div className="cartitems-format-main">

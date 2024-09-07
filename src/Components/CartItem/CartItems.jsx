@@ -3,14 +3,8 @@ import './CartItems.css'
 import { ShopContext } from '../../Context/ShopContext'
 import cart_cross_icon from '../Assets/cart_cross_icon.png'
 
-
 const CartItems = () => {
-    const { getTotalCartAmount, products, removeFromCart, cartItems, currentUser } = useContext(ShopContext);
-
-    if (!currentUser) {
-        return <div className='current-user-prompt'
-        >Please log in to view your cart.</div>;
-    }
+    const { getTotalCartAmount, products, removeFromCart, cartItems } = useContext(ShopContext);
     return (
         <div className='cartitems'>
             <div className="cartitems-format-main">
@@ -29,8 +23,8 @@ const CartItems = () => {
 
                         return <div>
                             <div className="cartitems-format cartitems-format-main">
-                                <img src={e.image} alt={e.name} className="cart-icon-product-icon" />
-                                <p>{e.name}</p>
+                                <img src={e.image} alt="" className="cart-icon-product-icon" />
+                                <p>{e.title}</p>
                                 <p>${e.price}</p>
                                 <button className='cart-items-quantity'>{cartItems[e.id]}</button>
                                 <p>${e.price * cartItems[e.id]}</p>

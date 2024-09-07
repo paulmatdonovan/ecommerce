@@ -12,7 +12,6 @@ const ShopCategory = (props) => {
                     <span></span>
                 </p>
                 <div className="shopcategrory-sort">
-
                 </div>
             </div>
             <div className="shopcategory-products">

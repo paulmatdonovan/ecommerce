@@ -1,19 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import './CSS/LoginSignup.css';
-import { ShopContext } from '../Context/ShopContext';
 
-const LoginSignup = () => {
+export const LoginSignup = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [users, setUsers] = useState([])
 
-    const { handleLogin } = useContext(ShopContext);
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [users, setUsers] = useState([]);
-
-    function handleSubmit(e) {
-        e.preventDefault();
+    function handleSubmit(event) {
+        event.preventDefault();
         const formData = {
-            username, email, password,
+            username, password, email
         };
 
         fetch("http://localhost:3000/users", {
@@ -24,11 +21,9 @@ const LoginSignup = () => {
             body: JSON.stringify(formData)
         })
             .then((r) => r.json())
-            .then((data) => {
-                setUsers((prevUsers) => [...prevUsers, data]);
-                handleLogin(data);
-            });
-    };
+            .then((data) => setUsers((prevUsers) => [...prevUsers, data]));
+    }
+
 
     return (
         <div className='loginsignup'>
@@ -40,7 +35,7 @@ const LoginSignup = () => {
                         <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Email' />
                         <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Password' />
                     </div>
-                    <button type='submit' >Continue</button>
+                    <button>Continue</button>
                     <p className="loginsignup-login">Already have an account? <span>Log in here</span></p>
                     <div className="loginsignup-agree">
                         <input type="checkbox" name='' id='' />

@@ -16,17 +16,14 @@ function App() {
           <Route path='/' element={<Shop />} />
           <Route path='/ipads' element={<ShopCategory category="ipads" />} />
           <Route path='/laptops' element={<ShopCategory category="laptops" />} />
-
           <Route path='/phones' element={<ShopCategory category="phones" />} />
           <Route path="product" element={<Product />}>
             <Route path=":productId" element={<Product />} />
           </Route>
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<LoginSignup />} />
-
         </Routes>
       </BrowserRouter>
-
     </div>
   );
 }

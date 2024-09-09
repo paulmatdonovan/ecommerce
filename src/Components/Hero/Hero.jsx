@@ -4,7 +4,7 @@ import Tech from '../Assets/Tech.jpg';
 
 const Hero = () => {
     return (
-        <div className='hero'>
+        <div className='hero1'>
             <div className="hero-left">
                 <h2>New Arrivals</h2>
                 <div>

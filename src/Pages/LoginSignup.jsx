@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './CSS/LoginSignup.css';
+import { ShopContext } from '../Context/ShopContext';
+import { isCursorAtEnd } from '@testing-library/user-event/dist/utils';
 
 export const LoginSignup = () => {
+    const { handleLogin } = useContext(ShopContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -13,7 +16,7 @@ export const LoginSignup = () => {
             username, password, email
         };
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://server-3-8ydy.onrender.com/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -21,9 +24,12 @@ export const LoginSignup = () => {
             body: JSON.stringify(formData)
         })
             .then((r) => r.json())
-            .then((data) => setUsers((prevUsers) => [...prevUsers, data]));
+            .then((data) => {
+                setUsers((prevUsers) => [...prevUsers, data]);
+                handleLogin(data);
+            });
+        console.log(users, handleLogin)
     }
-
 
     return (
         <div className='loginsignup'>

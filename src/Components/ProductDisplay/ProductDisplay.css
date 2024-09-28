@@ -11,7 +11,7 @@ productdisplay-left {
 .productdisplay-main-img {
     margin: 200px;
     width: 586px;
-    height: 700px;
+    /* height: 700px; */
 }
 
 .productdisplay-img-list {

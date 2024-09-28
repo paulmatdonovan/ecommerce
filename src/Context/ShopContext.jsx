@@ -7,9 +7,10 @@ const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
-        fetch("http://localhost:3000/products")
+        fetch("https://server-3-8ydy.onrender.com/products")
             .then((r) => r.json())
             .then((data) => {
                 setProducts(data);
@@ -20,11 +21,14 @@ const ShopContextProvider = (props) => {
                 });
                 setCartItems(initialCart);
                 setLoading(false);
-
             });
     }, []);
 
     const addToCart = (itemId) => {
+        if (!currentUser) {
+            alert("Please log in to add items to the cart")
+            return;
+        }
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     };
 
@@ -33,7 +37,6 @@ const ShopContextProvider = (props) => {
     };
 
     const getTotalCartItems = () => {
-
         return Object.values(cartItems).reduce((total, num) => total + num, 0);
     };
 
@@ -51,6 +54,14 @@ const ShopContextProvider = (props) => {
         }
         return totalAmount;
     };
+    const handleLogin = (user) => {
+        setCurrentUser(user);
+        setCartItems({})
+    }
+    const handleLogout = () => {
+        setCurrentUser(null);
+        setCartItems({});
+    };
 
     if (loading) {
         return <div>Loading...</div>;
@@ -65,8 +76,12 @@ const ShopContextProvider = (props) => {
         getTotalCartAmount,
         products,
         cartItems,
-        removeFromCart,
         addToCart,
+        removeFromCart,
+        setCurrentUser,
+        currentUser,
+        handleLogin,
+        handleLogout,
     };
 
     return (

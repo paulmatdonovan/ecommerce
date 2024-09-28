@@ -5,6 +5,7 @@ import Item from '../Components/Items/Item';
 
 const ShopCategory = (props) => {
     const { products } = useContext(ShopContext);
+
     return (
         <div className='shop-category'>
             <div className="shopcategory-indexSort">
@@ -16,13 +17,11 @@ const ShopCategory = (props) => {
             </div>
             <div className="shopcategory-products">
                 {products.map((item) => {
-
                     if (props.category === item.category) {
                         return <Item key={item.id} id={item.id} name={item.name} image={item.image} price={item.price} />
                     } else {
                         return null;
                     }
-
                 })}
             </div>
 
